@@ -1,0 +1,31 @@
+
+@br: 1px solid black;
+
+// 混合方法 普通混合
+.funcTest(@bgcolor, @n){
+    background-color: @bgcolor;
+    width: if((@bgcolor=red), @n, 100%);
+}
+
+.common{
+    &:hover{
+        opacity: .2;
+    }
+}
+
+.app {
+    background-color: red;
+    @media screen  and(min-width: 300px) and (max-width: 800px){
+        background-color: antiquewhite;
+    }
+    border: @br;
+    // 变量运算
+    height: 100vh;
+    overflow: scroll;
+    .funcTest(red, 10%);
+}
+
+.item {
+    height: 50px;
+    border-bottom: 1px solid black;
+}
